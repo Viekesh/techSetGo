@@ -1,0 +1,59 @@
+/* Navbar */
+
+header {
+    max-width: 100vw;
+    height: 9vh;
+    background-color: red;
+    box-shadow: 1px 1px 9px 1px gray;
+    justify-content: space-around;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+header a h1 {
+    color: snow;
+}
+
+header .links {
+    width: 50%;
+    justify-content: space-around;
+}
+
+header .links a {
+    color: snow;
+}
+
+
+/* Add User */
+
+.add_user h2 {
+    margin: 6vw auto;
+    text-align: center;
+}
+
+.add_user form {
+    margin: 15vw auto;
+    width: 96%;
+}
+
+.add_user form input {
+    margin: 3vw auto;
+    padding: 1vw;
+    border: 1px solid gray;
+    width: 100%;
+    height: 6vh;
+    font-size: 20px;
+    display: block;
+}
+
+.add_user form button {
+    margin: 3vw auto;
+    padding: 1vw;
+    border: 1px solid gray;
+    background-color: gray;
+    color: snow;
+    width: 100%;
+    height: 6vh;
+    font-size: 20px;
+    display: block;
+}
