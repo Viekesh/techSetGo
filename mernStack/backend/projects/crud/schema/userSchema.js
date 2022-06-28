@@ -3,7 +3,7 @@ import autoIncrement from "mongoose-auto-increment";
 
 
 
-const userSchema = () => mongoose.Schema({
+const userSchema = mongoose.Schema({
     name: String,
     username: String,
     email: String,
