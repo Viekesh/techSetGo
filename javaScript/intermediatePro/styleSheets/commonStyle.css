@@ -1,0 +1,14 @@
+/* Common Styles */
+* {
+    margin: 0;
+    border: none;
+    outline: none;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
