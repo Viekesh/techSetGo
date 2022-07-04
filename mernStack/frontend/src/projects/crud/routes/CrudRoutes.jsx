@@ -5,6 +5,7 @@ import "../../../App.css";
 import LandingPage from "../components/LandingPage";
 import AddUser from '../components/AddUser';
 import AllUser from "../components/AllUser";
+import UserUpdate from '../components/UserUpdate';
 
 
 
@@ -16,6 +17,7 @@ const CrudRoutes = () => {
                 <Route exact path="/" element={<LandingPage />} />
                 <Route exact path="/AddUser" element={<AddUser />} />
                 <Route exact path="/AllUser" element={<AllUser />} />
+                <Route exact path="/UserUpdate/:id" element={<UserUpdate />} />
             </Routes>
         </>
     )

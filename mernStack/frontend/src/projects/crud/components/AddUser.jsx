@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { addUser } from "../service/api.js";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -14,6 +15,8 @@ const AddUser = () => {
 
     const [user, setUser] = useState(defaultValue);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         console.log(user)
     }, [user]);
@@ -27,7 +30,8 @@ const AddUser = () => {
     };
 
     const addUserDetails = async () => {
-        await addUser(user)
+        await addUser(user);
+        navigate("/all");
     };
 
     return (

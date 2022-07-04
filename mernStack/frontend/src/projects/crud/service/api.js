@@ -20,3 +20,21 @@ export const getUser = async () => {
         console.log("Error while calling getUsers API from frontend", error.message);
     }
 }
+
+
+export const getUserData = async (id) => {
+    try {
+        return await axios.get(`${URL}/${id}`)
+    } catch (error) {
+        console.log("Error while calling editUser API", error.message);
+    }
+}
+
+
+export const editUpdate = async (user, id) => {
+    try {
+        return await axios.put(`${URL}/${id}`, user);
+    } catch (error) {
+        console.log("Error while calling editUpdate API", error.message);
+    }
+}

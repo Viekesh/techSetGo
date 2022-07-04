@@ -20,10 +20,40 @@ export const addUser = async (req, res) => {
 export const getUsers = async (req, res) => {
 
     try {
-        const users = await userModel.find();
-        res.status(201).json({ users });
+        const users = await userModel.find({});
+        res.status(200).json(users);
     } catch (error) {
         console.log("Error while calling getUsers API from backend", error.message);
     }
 
+}
+
+
+export const getUser = async (req, res) => {
+
+    console.log(req.params.id);
+
+    try {
+        // const user = await userModel.find({ _id: req.params.id });
+        const user = await userModel.findById({ _id: req.params.id });
+        res.status(200).json(user);
+    } catch (error) {
+        console.log("Error while calling updateUser API", error.message);
+    }
+}
+
+
+export const editUser = async (req, res) => {
+
+    let user = req.body;
+
+    const editUser = new userModel(user);
+
+    try {
+        await editUser.updateOne({ _id: req.params._id }, editUser);
+        res.status(201).json(editUser);
+    } catch (error) {
+        console.log("Error while calling editUser API from backend", error.message);
+        res.status(409).json({ message: error.message });
+    }
 }
