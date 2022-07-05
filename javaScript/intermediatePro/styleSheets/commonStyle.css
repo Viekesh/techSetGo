@@ -13,3 +13,14 @@
 html {
     scroll-behavior: smooth;
 }
+
+.x_axis_center {
+    display: flex;
+    align-items: center;
+}
+
+.x_y_axis_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
