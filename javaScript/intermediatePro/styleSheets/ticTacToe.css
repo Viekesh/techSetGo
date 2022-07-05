@@ -12,3 +12,23 @@ nav .logo h1 {
     font-weight: 900;
     color: snow;
 }
+
+.game_zone {
+    margin: 18vw auto;
+    border: 2px solid blue;
+    width: 90%;
+    height: auto;
+}
+
+.game_container {
+    margin: 0 auto;
+    border: 2px solid red;
+    width: fit-content;
+    display: grid;
+    grid-template-rows: repeat(3, 18vw);
+    grid-template-columns: repeat(3, 18vw);
+}
+
+.game_info h2 {
+    text-align: center;
+}
