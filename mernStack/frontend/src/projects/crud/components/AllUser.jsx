@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUser } from '../service/api';
+import { getUser, deleteUser } from '../service/api';
 import { NavLink } from 'react-router-dom';
 
 
@@ -18,6 +18,11 @@ const AllUser = () => {
         let response = await getUser();
         console.log(response.data);
         setUsers(response.data);
+    };
+
+    const deleteUserDetails = async (id) => {
+        await deleteUser(id);
+        getAllUser();
     };
 
     return (
@@ -44,7 +49,7 @@ const AllUser = () => {
                                 <td>{user.phone}</td>
                                 <td>
                                     <NavLink to={`/UserUpdate/${user._id}`}><button>Edit</button></NavLink>
-                                    <button>Delete</button>
+                                    <button onClick={() => deleteUserDetails(user._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))

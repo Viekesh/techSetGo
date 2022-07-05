@@ -50,10 +50,20 @@ export const editUser = async (req, res) => {
     const editUser = new userModel(user);
 
     try {
-        await editUser.updateOne({ _id: req.params._id }, editUser);
+        await editUser.updateOne({ _id: req.params.id }, editUser);
         res.status(201).json(editUser);
     } catch (error) {
         console.log("Error while calling editUser API from backend", error.message);
         res.status(409).json({ message: error.message });
+    }
+}
+
+
+export const deleteUser = async (req, res) => {
+    try {
+        await userModel.deleteOne({ _id: req.params.id })
+        res.status(201).json("User has successfully deleted");
+    } catch (error) {
+        res.status(409).json("Error while calling delete user API from backend", error.message);
     }
 }

@@ -1,5 +1,5 @@
 import express from "express";
-import { addUser, editUser, getUsers, getUser } from "../controller/userController.js";
+import { addUser, editUser, getUsers, getUser, deleteUser } from "../controller/userController.js";
 
 
 
@@ -12,5 +12,7 @@ router.get("/all", getUsers);
 router.get("/:id", getUser);
 
 router.put("/:id", editUser);
+
+router.delete("/:id", deleteUser);
 
 export default router;

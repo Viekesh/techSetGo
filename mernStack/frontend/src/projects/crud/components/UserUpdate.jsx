@@ -16,24 +16,27 @@ const UserUpdate = () => {
 
     const [user, setUser] = useState(defaultValue);
 
-    const navigate = useNavigate();
+    const { name, username, email, phone } = user;
 
     const { id } = useParams();
 
-    useEffect(() => {
-        loadUserDetails();
-    }, []);
+    const navigate = useNavigate();
+
 
     const loadUserDetails = async () => {
         const response = await getUserData(id);
         setUser(response.data);
     };
 
-    const { name, username, email, phone } = user;
+    useEffect(() => {
+        loadUserDetails();
+    }, []);
 
-    const editUserDetails = async () => {
+
+    const editUsrDetails = async () => {
         await editUpdate(id, user);
-        navigate("/all");
+        // console.log(response.data);
+        navigate("/AllUser");
     };
 
     const onValueChange = (event) => {
@@ -50,7 +53,9 @@ const UserUpdate = () => {
                 <input type="text" value={username} name="username" placeholder="Username" onChange={(event) => onValueChange(event)} />
                 <input type="text" value={email} name="email" placeholder="Email" onChange={(event) => onValueChange(event)} />
                 <input type="text" value={phone} name="phone" placeholder="Phone" onChange={(event) => onValueChange(event)} />
-                <button type="submit" className='x_y_axis_center' onClick={() => editUserDetails()}>Update User</button>
+                {/* <NavLink onClick={() => editUserDetails()}> */}
+                <button type="submit" className='x_y_axis_center' onClick={() => editUsrDetails()}>Update User</button>
+                {/* </NavLink> */}
             </form>
         </div>
     )
