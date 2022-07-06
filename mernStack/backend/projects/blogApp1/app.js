@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import connection from "./database/db.js";
+import userRouter from "./routes/userRoutes.js";
 
 
 
@@ -23,3 +24,5 @@ app.listen(process.env.PORT, () => {
 });
 
 connection();
+
+app.use("/api/user", userRouter);
