@@ -26,7 +26,6 @@ export const signUp = async (req, res, next) => {
         res.status(400).json({ message: "User is already existing in the database! Login instead" });
     }
 
-
     try {
         await newUser.save();
         res.status(200).json({ message: "User is successfully added to the database" });
@@ -87,11 +86,7 @@ export const deleteUser = async (req, res, next) => {
         await userModel.deleteOne({ _id: req.params.id });
         res.status(201).json("User has successfully deleted")
     } catch (error) {
-        console.log(409).json("Error while callin delete user API", error.message);
+        res.status(409).json({ message: "Error while calling delete user API from backend", message2: error.message });
     }
 };
 
-
-// Error : (node:4196) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [Bus]. Use emitter.setMaxListeners()
-// to increase limit
-// (Use `node --trace-warnings ...` to show where the warning was created)

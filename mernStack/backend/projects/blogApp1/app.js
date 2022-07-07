@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import connection from "./database/db.js";
 import userRouter from "./routes/userRoutes.js";
+import blogRouter from "./routes/blogRoutes.js";
 
 
 
@@ -17,6 +18,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
+app.use("/api/user", userRouter);
+
+app.use("/api/blog", blogRouter);
+
 app.use(cors());
 
 app.listen(process.env.PORT, () => {
@@ -24,5 +29,3 @@ app.listen(process.env.PORT, () => {
 });
 
 connection();
-
-app.use("/api/user", userRouter);
