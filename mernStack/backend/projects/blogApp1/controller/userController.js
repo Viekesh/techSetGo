@@ -19,7 +19,7 @@ export const signUp = async (req, res, next) => {
     try {
         existingUser = await userModel.findOne({ email });
     } catch (error) {
-        return console.log(existingUser);
+        return console.log(error.message);
     }
 
     if (existingUser) {
@@ -30,11 +30,8 @@ export const signUp = async (req, res, next) => {
         await newUser.save();
         res.status(200).json({ message: "User is successfully added to the database" });
     } catch (error) {
-        // res.status(500).json({ message: "Registration Failed" });
         console.log("User already exist", error.message);
     }
-
-    // return res.status(201).json({ newUser });
 }
 
 
@@ -90,3 +87,17 @@ export const deleteUser = async (req, res, next) => {
     }
 };
 
+
+
+
+
+
+
+
+// Here once we are creating a new user like in the signUp it will be having a blogs
+// because now we have defined the required field of the "blog" so it will just have
+// some blogs inside thatc, so once we are defining the user as the name and the
+// password then we can just define the blog will be equals to an empty array ("blog:[]")
+
+
+// Now we need to move on to the blogs......
