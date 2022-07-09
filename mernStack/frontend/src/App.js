@@ -2,13 +2,18 @@ import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import BARoutes from './projects/blogApp1/BARoutes';
+import { Provider } from "react-redux";
+import { store } from "./projects/blogApp1/store/index";
+
 
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <BARoutes />
+        <Provider store={store}>
+          <BARoutes />
+        </Provider>
       </BrowserRouter>
     </>
   )
@@ -20,28 +25,13 @@ export default App;
 
 
 
-// import logo from './logo.svg';
-// import './App.css';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
-// export default App;
+
+// So here provider doesn't know that which state we need to implement, So we need to implement
+// the store prop and the store will be equal to the store that we have just created into the
+// redux
+
+// Now we are having the provider store equal to store and then we are having the app(BARoutes) as the
+// provider and then we are wrapping the app(BARoutes) component with the redux and now to grap the
+// state of the redux then we can move on to the app(BARoutes) component......
