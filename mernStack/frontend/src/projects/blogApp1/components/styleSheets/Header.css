@@ -1,0 +1,44 @@
+header {
+    padding: 6vw;
+    max-width: 100vw;
+    height: auto;
+    justify-content: space-around;
+    background-color: red;
+    box-shadow: 1px 1px 3px 1px gray;
+}
+
+.logo h1 {
+    font-size: 6vw;
+    font-weight: bold;
+    color: snow;
+}
+
+.nav_buttons button {
+    border-radius: 3vw;
+    margin: 0 3vw;
+    width: 70px;
+    padding: 1.3vw;
+    font-size: 15px;
+    font-weight: bold;
+    color: snow;
+    background-color: darkblue;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    header {
+        padding: 1vw;
+    }
+
+    .logo h1 {
+        font-size: 2vw;
+    }
+
+    .nav_buttons button {
+        border-radius: 1vw;
+        margin: 0 3vw;
+        padding: .6vw;
+        font-size: 12px;
+    }
+}
