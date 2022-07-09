@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import CrudRoutes from "./projects/crud/routes/CrudRoutes.jsx";
+import BARoutes from './projects/blogApp1/BARoutes';
 
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <CrudRoutes />
+        <BARoutes />
       </BrowserRouter>
     </>
   )
