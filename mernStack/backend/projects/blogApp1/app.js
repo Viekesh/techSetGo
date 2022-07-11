@@ -10,6 +10,8 @@ import blogRouter from "./routes/blogRoutes.js";
 
 const app = express();
 
+app.use(cors());
+
 dotenv.config();
 
 app.use(express.json());
@@ -21,8 +23,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/api/user", userRouter);
 
 app.use("/api/blog", blogRouter);
-
-app.use(cors());
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port no. ${process.env.PORT}`);
