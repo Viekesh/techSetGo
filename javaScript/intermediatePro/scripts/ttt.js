@@ -2,7 +2,7 @@ console.log("Welcome To Tic Tac Toe");
 
 let backgroundMusic = new Audio("../music/music.mp3");
 
-let audioTurn = new Audio("../music/ting.mp3");
+let audioTune = new Audio("../music/ting.mp3");
 
 let gameOverTune = new Audio("../music/gameover.mp3");
 
@@ -42,6 +42,7 @@ const checkWin = () => {
         if((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== "")) {
             document.querySelector(".info").innerText = boxText[e[0]].innerText + " Won";
             isGameOver = true;
+            document.querySelector(".img_box").getElementsByTagName("img")[0].style.display = "block";
         }
     })
 };
@@ -53,6 +54,8 @@ const checkWin = () => {
 
 
 // Game logic start
+
+// backgroundMusic.play();
 
 let boxes = document.getElementsByClassName("box");
 
@@ -66,7 +69,7 @@ Array.from(boxes).forEach(element => {
         if (boxText.innerText === "") {
             boxText.innerText = initialTurn;
             initialTurn = changeTurn();
-            audioTurn.play();
+            audioTune.play();
             checkWin();
             if(!isGameOver) {
                 document.getElementsByClassName(".info")[0].innerText = "Turn for " + initialTurn;
@@ -80,4 +83,15 @@ Array.from(boxes).forEach(element => {
 
 
 
-console.log(boxes);
+// Add onclick listener for reset button
+
+reset.addEventListener("click", () => {
+    let box_text = document.querySelectorAll(".box_text");
+    Array.from(box_text).forEach(element => {
+        element.innerText = ""
+    });
+    isGameOver = false;
+    document.getElementsByClassName("info")[0].innerText = "Turn for " + initialTurn;
+    document.querySelector(".img_box").getElementsByTagName("img")[0].style.display = "none";
+});
+// console.log(boxes);
