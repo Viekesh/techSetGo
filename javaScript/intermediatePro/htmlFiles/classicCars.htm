@@ -12,7 +12,10 @@
 
 <body>
     <header>
-        <a href="classicCars.htm"><img src="../images/auto-car-logo-edited.png" alt="logo" class="logo"></a>
+        <a href="classicCars.htm">
+            <img src="../images/auto-car-logo-edited.png" alt="logo" class="logo">
+        </a>
+
         <nav class="center desktop">
             <a to='#'>Model S</a>
             <a to='#'>Model 3</a>
@@ -22,10 +25,11 @@
             <a to='#'>Solar Panels</a>
         </nav>
 
-        <div className="backdrop"></div>
+
+        <div class="backdrop"></div>
 
         <aside>
-            <button className="close" onClick={toggleMobileMenu}>&times;</button>
+            <button class="close" onClick=closeMenu()>&times;</button>
             <a to='/'>Existing Inventory</a>
             <a to='/'>Used Inventory</a>
             <a to='/'>Trade-In</a>
@@ -44,84 +48,86 @@
         </aside>
 
         <nav class="right">
-            <a to='#' className='desktop'>Account</a>
-            <a to='#' className='desktop'>Shop</a>
-            <a to='#' id='menuBtn' onClick={toggleMobileMenu}>Menu</a>
+            <a to='#' class='desktop'>Account</a>
+            <a to='#' class='desktop'>Shop</a>
+            <a to='#' id='menuBtn' onClick=openMenu()>Menu</a>
         </nav>
     </header>
 
     <main>
-        <section className='sec1'>
-            <div className="content">
+        <section class='sec1'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec2'>
-            <div className="content">
+        <section class='sec2'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec3'>
-            <div className="content">
+        <section class='sec3'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec4'>
-            <div className="content">
+        <section class='sec4'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec5'>
-            <div className="content">
+        <section class='sec5'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec6'>
-            <div className="content">
+        <section class='sec6'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
-        <section className='sec7'>
-            <div className="content">
+        <section class='sec7'>
+            <div class="content">
                 <h1>Model 3</h1>
                 <p>Order Online For <a href='/'>Touchless Delivery</a></p>
-                <div className="button">
+                <div class="button">
                     <a href="/">Custom Order</a>
                     <a href="/">Existing Inventory</a>
                 </div>
             </div>
         </section>
     </main>
+
+    <script src="../scripts/classicCars.js"></script>
 </body>
 
 </html>
