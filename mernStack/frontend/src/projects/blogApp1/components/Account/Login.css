@@ -1,14 +1,89 @@
-.user_login{
+.user_form{
     max-width: 100vw;
-    height: 90vh;
-    background: url("../../../images/hacker.png") no-repeat;
-    background-size: 100%;
+    height: 85vh;
+    padding: 18vw 0 0 0;
+    background: url("../../../images/100458661-books-pen-pencil-and-office-equipment-on-table-wood-education-and-back-to-school-concept-clipping-pa.webp") no-repeat;
+    background-size: 100% 100%;
     background-position: center;
-    /* opacity: 0.3; */
+}
+
+.login {
+    margin: 0 auto;
+    padding: 3vh 0 0 0;
+    width: 90vw;
+    height: auto;
+    border-radius: 3vw;
+    max-width: 100vw;
+    background-color: rgba(255, 0, 51, 0.3);
+    -webkit-backdrop-filter: blur(18.5px);
+    text-align: center;
+    justify-content: center;
+    box-shadow: 3px 3px 30px 3px rgb(83, 83, 83);
+}
+
+.login h2 {
+    margin: 3vh auto;
+    font-size: 9vw;
+    color: snow;
+}
+
+.login span {
+    color: snow;
+    font-weight: bolder;
+}
+
+.login form {
+    flex-direction: column;
+}
+
+.login_form_elements {
+    margin: 3vw auto;
+    border-radius: 3vw;
+    padding: 3vw;
+    width: 90%;
+    font-size: 21px;
+    box-shadow: 1px 1px 15px 1px rgb(57, 57, 57);
+
+    background-color: snow;
+    color: rgb(36, 36, 36);
+    font-weight: bold;
+}
+
+.login form button {
+    background-color: blueviolet;
+    color: snow;
+    font-weight: bold;
 }
 
 @media only screen and (min-width: 768px) {
-    .user_login {
-        height: 85vh;
+    .user_form {
+        padding: 3vw 0 0 0;
+    }
+
+    .login {
+        margin: 0 auto;
+        padding: 2vh 0 9vh 0;
+        width: 20vw;
+        height: auto;
+        border-radius: 1vw;
+    }
+    
+    .login h2 {
+        margin: 3vh auto;
+        font-size: 3vw;
+        color: snow;
+    }
+    
+    .login_form_elements {
+        margin: .6vw auto;
+        border-radius: .6vw;
+        padding: .6vw;
+        font-size: 15px;
+    }
+    
+    .login form button {
+        background-color: blueviolet;
+        color: snow;
+        font-weight: bold;
     }
 }
