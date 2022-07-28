@@ -6,18 +6,18 @@ import bcrypt from "bcrypt";
 // Register User
 
 export const signUp = async (req, res, next) => {
-    const { name, email, password } = req.body;
+    const { name, username, password } = req.body;
 
     const salt = await bcrypt.genSalt(10);
 
     const hashedPass = await bcrypt.hash(password, salt);
 
-    const newUser = new userModel({ name, email, password: hashedPass, blogs: [] });
+    const newUser = new userModel({ name, username, password: hashedPass, blogs: [] });
 
     let existingUser;
 
     try {
-        existingUser = await userModel.findOne({ email });
+        existingUser = await userModel.findOne({ username });
     } catch (error) {
         return console.log(error.message);
     }
@@ -30,7 +30,7 @@ export const signUp = async (req, res, next) => {
         await newUser.save();
         res.status(200).json({ message: "User is successfully added to the database" });
     } catch (error) {
-        console.log("User already exist", error.message);
+        console.log("Error occured while calling signUp user API", error.message);
     }
 }
 

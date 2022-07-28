@@ -1,52 +1,79 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import "./Login.css";
+
+
+
+const signUpInitialValues = {
+  name: "",
+  username: "",
+  password: "",
+}
 
 const Login = () => {
 
   const [account, toggleAcc] = useState("login");
 
+  const [signUp, setSignUp] = useState(signUpInitialValues);
+
   const toggleSignUp = () => {
     toggleAcc("signUp");
   }
 
+  const onInputChange = (event) => {
+    // console.log(event.target.name, event.target.value);
+    setSignUp({ ...signUp, [event.target.name]: event.target.value });
+  }
+
   return (
     <div className='user_form'>
-      <div className="login">
+      {
+        account === "login" ?
 
-        {
-          account === "login" ? <h2>LOGIN HERE</h2> : <h2>REGISTER HERE</h2>
-        }
+          <div className="login">
+            <h2>Register Here</h2>
+            <form className='login_form x_axis_center'>
+              <input onChange={(event) => onInputChange(event)} type="text" name="name" placeholder="Enter Your Name" className='login_form_elements' />
+              <input onChange={(event) => onInputChange(event)} type="name" name="username" placeholder="Enter The Username" className='login_form_elements' />
+              <input onChange={(event) => onInputChange(event)} type="password" name="password" placeholder="Enter The Password" className='login_form_elements' />
+              <button
+                type='submit'
+                className='login_form_elements'
+              >
+                Register
+              </button>
 
-        <form className='x_y_axis_center'>
+              <button
+                type='submit'
+                className='login_form_elements'
+                onClick={() => toggleSignUp()}
+              >
+                Already Have An Account
+              </button>
 
-          {
-            account === "login"
-            ? 
-            <input type="text" className='login_form_elements' placeholder='Username' />
-            :
-            <input type="text" className='login_form_elements' placeholder='Enter Your Name'/>
-          }
+            </form>
+          </div>
 
-          <input type="password" className='login_form_elements' placeholder='Password' />
-          <button className='login_form_elements'>LOGIN</button>
+          :
 
-          <span>OR</span>
+          <div className="login">
+            <h2>Login Here</h2>
+            <form className='login_form x_axis_center'>
+              <input type="text" name="username" placeholder="Enter The Username" className='login_form_elements' />
+              <input type="text" name="password" placeholder="Enter The Password" className='login_form_elements' />
+              <button type='submit' className='login_form_elements'>Submit</button>
 
-          {
-            account === "login"
-            ?
-            <button
-            className='login_form_elements'
-            onClick={() => toggleSignUp()}
-            >
-              NOT YET REGISTERED
-            </button>
-            :
-            <button className='login_form_elements'>LOGIN HERE</button>
-          }
+              <button
+                type='submit'
+                className='login_form_elements'
+                onClick={() => toggleSignUp()}
+              >
+                Not Yet Registered
+              </button>
 
-        </form>
-      </div>
+            </form>
+          </div>
+
+      }
     </div>
   )
 }
