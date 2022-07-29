@@ -16,6 +16,8 @@ const Login = () => {
 
   const [signUp, setSignUp] = useState(signUpInitialValues);
 
+  const [error, showError] = useState("");
+
   const toggleSignUp = () => {
     toggleAcc("signUp");
   }
@@ -26,7 +28,14 @@ const Login = () => {
   }
 
   const signUpUser = async () => {
-    await API.userSignUp(signUp);
+    let response = await API.userSignUp(signUp);
+    if(response.isSuccess) {
+      showError("");
+      setSignUp(signUpInitialValues);
+      toggleAcc("signup");
+    } else {
+      showError("Something went wront plase try again later");
+    }
   }
 
   return (
@@ -66,6 +75,8 @@ const Login = () => {
             <form className='login_form x_axis_center'>
               <input type="text" name="username" placeholder="Enter The Username" className='login_form_elements' />
               <input type="text" name="password" placeholder="Enter The Password" className='login_form_elements' />
+
+
               <button type='submit' className='login_form_elements'>Submit</button>
 
               <button
