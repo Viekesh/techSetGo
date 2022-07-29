@@ -24,7 +24,7 @@ export const API_NOTIFICATION_MESSAGES = {
     },
 
     requestFailure : {
-        title : "Request Failure",
+        title : "Request Failure / Error from backend",
         message : "Some error occured when parsing request data"
 
         // In this case problem occurs from the backend
@@ -35,5 +35,17 @@ export const API_NOTIFICATION_MESSAGES = {
         message : "Unable to connect with the server, please check internet connectivity or try again later"
 
         // In this case connectivity issue or network issues are occured
+    }
+}
+
+
+// API service call
+// We are looking sample request here, sample request will be with key, with key will be value,
+// in value you have to pass url "userSignUp : {url : "/signup", method:"POST/GET/PUT/DELETE", params : true/false, query : true/false }"
+
+export const service_URLS = {
+    userSignUp : {
+        url : "/signUp",
+        method : "POST"
     }
 }

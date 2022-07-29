@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_NOTIFICATION_MESSAGES } from "../constants/config";
+import { API_NOTIFICATION_MESSAGES, service_URLS } from "../constants/config";
 
 
 
@@ -55,6 +55,10 @@ const processResponse = (response) => {
     }
 }
 
+
+// if success > return { isSuccess : true, data : object }
+// if fail > return { isFailure : true, status : string, msg : string, code : "" }
+
 const processError = (error) => {
 
     if(error.response) {
@@ -63,15 +67,71 @@ const processError = (error) => {
     // In this you have successfully sent the request but the response from sever is status code
     // other than 200
 
+    console.log("Error in respose", error.toJSON());
+
+    return {
+        isError : true,
+        msg : API_NOTIFICATION_MESSAGES.responseFailure,
+        code : error.response.status
+    }
+
     } else if (error.request) {
+
         // In this What happens in case of error, you sent the request properly but no response came
         // for ex. frontend is not connected to the backend, connectivity issue or network
         // issue all these are comes here
+
+
+        console.log("Error in network", error.toJSON());
+
+    return {
+        isError : true,
+        msg : API_NOTIFICATION_MESSAGES.networkError,
+        code : ""
+    }
+        
     } else {
         
         // In this proper frontend error occurs, by using these method you can easily bebug the code
+
+        console.log("Error in respose", error.toJSON());
+
+    return {
+        isError : true,
+        msg : API_NOTIFICATION_MESSAGES.responseFailure,
+        code : ""
+    }
     }
 }
+
+const API = {};
+
+// We have to create an object here "const API = {}", we can call api through this object
+// First of all we have to create an api here which will be our service url
+
+for (const [key, value] of Object.entries(service_URLS)) {
+    API[key] = (body, showUploadProgress, showDownloadProgress) => 
+        axiosInstance({
+            method : value.method,
+            url : value.url,
+            body : body,
+            responseType : value.responseType,
+            onUploadProgress : function(progressEvent) {
+                if(showUploadProgress) {
+                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    showUploadProgress(percentCompleted);
+                }
+            },
+            onDownloadProgress : function(progressEvent) {
+                if(showDownloadProgress) {
+                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    showDownloadProgress(percentCompleted);
+                }
+            }
+        })
+}
+
+export {API};
 
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./Login.css";
+import { API } from '../../service/api';
 
 
 
@@ -24,6 +25,10 @@ const Login = () => {
     setSignUp({ ...signUp, [event.target.name]: event.target.value });
   }
 
+  const signUpUser = async () => {
+    await API.userSignUp(signUp);
+  }
+
   return (
     <div className='user_form'>
       {
@@ -38,6 +43,7 @@ const Login = () => {
               <button
                 type='submit'
                 className='login_form_elements'
+                onClick={() => signUpUser()}
               >
                 Register
               </button>
